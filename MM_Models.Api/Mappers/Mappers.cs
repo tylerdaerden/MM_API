@@ -27,6 +27,17 @@ namespace MM_Models.Api.Mappers
                 password
             );
         }
+
+        internal static Artist ToArtist(this IDataRecord dataRecord) 
+        {
+            return new Artist(
+                (int)dataRecord["Id"],
+                (string)dataRecord["ArtistName"],
+                (string)dataRecord["Genre"]
+
+
+                );
+        }
     }
 
 }
