@@ -23,7 +23,10 @@ namespace MM_API
             builder.Services.AddSwaggerGen();
             builder.Services.AddScoped<IAuthRepository, AuthService>();
             string databaseadress = Environment.GetEnvironmentVariable("MM_Database");
-            builder.Services.AddTransient<DbConnection>(sp => new SqlConnection(configuration.GetConnectionString("MM_Database").Replace("DB_HOST", databaseadress ?? "FORMA - VDI303\\TFTIC")));
+            builder.Services.AddTransient<DbConnection>(sp => new SqlConnection(configuration.GetConnectionString("MM_Database").Replace("DB_HOST", databaseadress ?? "TOURPCDANY\\DATAVIZ")));
+            //pour la VDI
+            //("DB_HOST", databaseadress ?? "FORMA - VDI303\\TFTIC")));
+
             //builder.Configuration.GetConnectionString("default").Replace("MixMashter.Database", databaseadress);
 
             #region token
