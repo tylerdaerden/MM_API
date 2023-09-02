@@ -11,12 +11,12 @@ namespace MM_Models.Api.Command
     public class AddArtistCommand : ICommandDefinition
     {
         public string ArtistName { get; set; }
-        public string Genre { get; set;}
+        public string Genres { get; set;}
 
-        public AddArtistCommand(string artistName, string genre)
+        public AddArtistCommand(string artistName, string genres)
         {
             ArtistName = artistName;
-            Genre = genre;
+            Genres = genres;
         }
     }
 }

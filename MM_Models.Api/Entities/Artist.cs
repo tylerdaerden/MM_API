@@ -11,13 +11,13 @@ namespace MM_Models.Api.Entities
     {
         public int Id { get; init; }
         public string ArtistName { get; init; }
-        public string Genre { get; init; }
+        public string Genres { get; init; }
 
         public Artist(int id, string artistName, string genre)
         {
             Id = id;
             ArtistName = artistName;
-            Genre = genre;
+            Genres = genre;
         }
 
         public Artist(string artistName) 

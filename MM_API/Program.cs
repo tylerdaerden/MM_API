@@ -8,6 +8,7 @@ using System.Text;
 
 namespace MM_API
 {
+#nullable disable
     public class Program
     {
         public static void Main(string[] args)
@@ -22,6 +23,7 @@ namespace MM_API
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddScoped<IAuthRepository, AuthService>();
+            builder.Services.AddScoped<IAddRepository, AddService>();
             string databaseadress = Environment.GetEnvironmentVariable("MM_Database");
             builder.Services.AddTransient<DbConnection>(sp => new SqlConnection(configuration.GetConnectionString("MM_Database").Replace("DB_HOST", databaseadress ?? "TOURPCDANY\\DATAVIZ")));
             //pour la VDI

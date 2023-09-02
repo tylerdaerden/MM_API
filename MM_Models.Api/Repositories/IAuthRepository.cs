@@ -13,6 +13,8 @@ namespace MM_Models.Api.Repositories
 {
     public interface IAuthRepository : ICommandHandler<RegisterCommand>,
         IQueryHandler<LoginQuery, User>
+        //,
+        //ICommandHandler<AddArtistCommand>
     {
 
     }

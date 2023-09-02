@@ -33,9 +33,7 @@ namespace MM_Models.Api.Mappers
             return new Artist(
                 (int)dataRecord["Id"],
                 (string)dataRecord["ArtistName"],
-                (string)dataRecord["Genre"]
-
-
+                (string)dataRecord["Genres"]
                 );
         }
     }
