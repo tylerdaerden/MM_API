@@ -52,22 +52,5 @@ namespace MM_API.Controllers
             return Ok(utilisateur);
 
         }
-
-        //[HttpPost("AddArtist")]
-        //public IActionResult AddArtist([FromBody] AddArtistForm form)
-        //{
-        //    _logger.LogInformation($"New Artist Added : {form.ArtistName}  as a {form.Genre} artist");
-        //    ICommandResult result = _authRepository.Execute(new AddArtistCommand(form.ArtistName, form.Genre));
-
-        //    if (result.IsFailure)
-        //    {
-        //        _logger.LogError(result.Message);
-        //        return BadRequest();
-        //    }
-
-
-        //    return NoContent();
-        //}
-
     }
 }

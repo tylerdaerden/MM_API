@@ -9,7 +9,8 @@ using Tools.CQS.Command;
 namespace MM_Models.Api.Repositories
 {
     public interface IAddRepository:
-        ICommandHandler<AddArtistCommand>
+        ICommandHandler<AddArtistCommand>,
+        ICommandHandler<AddMasherCommand>
     {
     }
 }

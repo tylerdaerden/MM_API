@@ -39,5 +39,21 @@ namespace MM_API.Controllers
             return NoContent();
         }
 
+        [HttpPost("AddMasher")]
+        public IActionResult AddMasher([FromBody] AddMasherForm form)
+        {
+            _logger.LogInformation($"New Masher Added : {form.MasherName} with the following link to his work {form.Weblink}");
+            ICommandResult result = _addRepository.Execute(new AddMasherCommand(form.MasherName,form.Weblink));
+
+            if (result.IsFailure)
+            {
+                _logger.LogError(result.Message);
+                return BadRequest();
+            }
+
+
+            return NoContent();
+        }
+
     }
 }

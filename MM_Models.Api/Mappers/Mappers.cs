@@ -36,6 +36,15 @@ namespace MM_Models.Api.Mappers
                 (string)dataRecord["Genres"]
                 );
         }
+
+        internal static Masher ToMasher(this IDataRecord dataRecord)
+        {
+            return new Masher(
+                (int)dataRecord["Id"],
+                (string)dataRecord["MasherName"],
+                (string)dataRecord["Weblink"]
+                );
+        }
     }
 
 }
