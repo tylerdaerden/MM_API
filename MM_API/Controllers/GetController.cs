@@ -35,6 +35,22 @@ namespace MM_API.Controllers
             return Ok(mashup) ;
         }
 
+        [HttpGet("GetMashupByMasher")]
+        public IActionResult GetMashupByMasher([FromQuery] GetMashupByMasherForm form)
+        {
+            _logger.LogInformation($"Mashup Request by Masher : {form.MasherName} ");
+            Mashup? mashup = _getRepository.Execute(new GetMashupByArtistQuery(form.MasherName));
+
+            if (mashup is null)
+            {
+                _logger.LogWarning("No Mashup Found");
+                return NotFound();
+            }
+
+            return Ok(mashup);
+        }
+
+
 
 
 

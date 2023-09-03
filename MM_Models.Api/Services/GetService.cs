@@ -25,7 +25,15 @@ namespace MM_Models.Api.Services
         public Mashup Execute(GetMashupByArtistQuery query)
         {
             _dbConnection.Open();
-            Mashup mashup = _dbConnection.ExecuteReader("MMSP_GetMashupbyArtist", dr => dr.ToMashupByArtist() , true , query).FirstOrDefault();
+            Mashup mashup = _dbConnection.ExecuteReader("MMSP_GetMashupbyArtist", dr => dr.ToMashupByArtist() , true , query).SingleOrDefault();
+            _dbConnection.Close();
+            return mashup;
+        }
+
+        public Mashup Execute(GetMashupByMasherQuery query)
+        {
+            _dbConnection.Open();
+            Mashup mashup = _dbConnection.ExecuteReader("MMSP_GetMashupbyMasher", dr => dr.ToMashupByMasher(), true, query).SingleOrDefault();
             _dbConnection.Close();
             return mashup;
         }

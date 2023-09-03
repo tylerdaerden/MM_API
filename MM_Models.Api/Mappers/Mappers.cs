@@ -80,6 +80,14 @@ namespace MM_Models.Api.Mappers
 
                 );
         }
+
+        internal static Mashup ToMashupByMasher(this IDataRecord dataRecord)
+        {
+            return new Mashup(
+            (string)dataRecord["Masher"],
+            (string)dataRecord["Mashup"]
+                );
+        }
     }
 
 }

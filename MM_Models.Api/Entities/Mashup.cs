@@ -15,6 +15,7 @@ namespace MM_Models.Api.Entities
         public string Title { get; init; }
         public string PathFile { get; init; }
         public string ArtistName { get; init; }
+        public string MasherName { get; init; }
         public int Length { get; init; }
         public TrackId TracksId { get; }
         public int MasherId { get; }
@@ -35,6 +36,7 @@ namespace MM_Models.Api.Entities
             PathFile = pathfile;
             ArtistName = artistname;
         }
+
 
     }
 }

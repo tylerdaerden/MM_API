@@ -2,11 +2,11 @@
 
 namespace MM_API.Forms
 {
-    public class GetMashupByArtistForm
-    {
 #nullable disable
+    public class GetMashupByMasherForm
+    {
 
         [Required]
-        public string MashupArtist { get; set; }
+        public string MasherName { get; set; }
     }
 }
