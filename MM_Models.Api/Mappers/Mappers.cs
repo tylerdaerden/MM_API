@@ -1,4 +1,5 @@
-﻿using MM_Models.Api.Entities;
+﻿using MM_Models.Api.Command;
+using MM_Models.Api.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -26,6 +27,66 @@ namespace MM_Models.Api.Mappers
                 (DateTime)dataRecord["BirthDate"],
                 password
             );
+        }
+
+        internal static Artist ToArtist(this IDataRecord dataRecord) 
+        {
+            return new Artist(
+                (int)dataRecord["Id"],
+                (string)dataRecord["ArtistName"],
+                (string)dataRecord["Genres"]
+                );
+        }
+
+        internal static Masher ToMasher(this IDataRecord dataRecord)
+        {
+            return new Masher(
+                (int)dataRecord["Id"],
+                (string)dataRecord["MasherName"],
+                (string)dataRecord["Weblink"]
+                );
+        }
+
+        internal static Track ToTrack(this IDataRecord dataRecord)
+        {
+            return new Track(
+                (int)dataRecord["Id"],
+                (string)dataRecord["Title"],
+                (int)dataRecord["Length"],
+                (bool)dataRecord["Explicit"],
+                (string)dataRecord["ArtistName"],
+                (int)dataRecord["ArtistId"]
+                );
+        }
+
+        internal static Mashup ToMashup(this IDataRecord dataRecord)
+        {
+            return new Mashup(
+                (int)dataRecord["Id"],
+                (string)dataRecord["Title"],
+                (string)dataRecord["PathFile"],
+                (int)dataRecord["Length"],
+                (TrackId)dataRecord["TrackIds"],
+                (int)dataRecord["Masherid"]
+                );
+            ;
+        }
+
+        internal static Mashup ToMashupByArtist(this IDataRecord dataRecord) 
+        {
+            return new Mashup(
+            (string)dataRecord["Mashups"],
+            (string)dataRecord["Artist"]
+
+                );
+        }
+
+        internal static Mashup ToMashupByMasher(this IDataRecord dataRecord)
+        {
+            return new Mashup(
+            (string)dataRecord["Masher"],
+            (string)dataRecord["Mashup"]
+                );
         }
     }
 

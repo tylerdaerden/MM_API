@@ -49,6 +49,25 @@ namespace MM_Models.Api.Services
             _dbConnection.Close();
             return user;
         }
+
+        //public ICommandResult Execute(AddArtistCommand command)
+        //{
+        //    try
+        //    {
+        //        using (_dbConnection)
+        //        {
+        //            _dbConnection.Open();
+
+        //            _dbConnection.ExecuteNonQuery("MMSP_AddArtist", true, command);
+        //            return
+        //                ICommandResult.Success();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return ICommandResult.Failure(ex.Message);
+        //    }
+        //}
     }
 
 }

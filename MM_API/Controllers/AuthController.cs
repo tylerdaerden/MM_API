@@ -52,6 +52,5 @@ namespace MM_API.Controllers
             return Ok(utilisateur);
 
         }
-
     }
 }
