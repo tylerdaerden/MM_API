@@ -34,8 +34,3 @@ namespace MM_Models.Api.Entities
 
     }
 }
-
-//@Title NVARCHAR(50),
-//	@Length INT,
-//    @Explicit BIT, --mettre 1 pour True et 0 pour False
-//    @ArtistName NVARCHAR(80),

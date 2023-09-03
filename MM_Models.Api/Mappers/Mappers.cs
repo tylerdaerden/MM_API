@@ -1,4 +1,5 @@
-﻿using MM_Models.Api.Entities;
+﻿using MM_Models.Api.Command;
+using MM_Models.Api.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -56,6 +57,19 @@ namespace MM_Models.Api.Mappers
                 (string)dataRecord["ArtistName"],
                 (int)dataRecord["ArtistId"]
                 );
+        }
+
+        internal static Mashup ToMashup(this IDataRecord dataRecord)
+        {
+            return new Mashup(
+                (int)dataRecord["Id"],
+                (string)dataRecord["Title"],
+                (string)dataRecord["PathFile"],
+                (int)dataRecord["Length"],
+                (TrackId)dataRecord["TrackIds"],
+                (int)dataRecord["Masherid"]
+                );
+            ;
         }
     }
 

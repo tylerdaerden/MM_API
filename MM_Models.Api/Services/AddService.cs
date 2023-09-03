@@ -80,5 +80,23 @@ namespace MM_Models.Api.Services
                 return ICommandResult.Failure(ex.Message);
             }
         }
+
+        public ICommandResult Execute(AddMashupCommand command)
+        {
+            try
+            {
+                using (_dbConnection) 
+                {
+                    _dbConnection.Open();
+
+                    _dbConnection.ExecuteNonQuery("MMSP_AddMashup", true, command);
+                    return ICommandResult.Success();
+                }
+            }
+            catch (Exception ex) 
+            {
+                return ICommandResult.Failure(ex.Message);
+            }
+        }
     }
 }

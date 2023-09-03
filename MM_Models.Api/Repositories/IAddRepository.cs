@@ -11,7 +11,8 @@ namespace MM_Models.Api.Repositories
     public interface IAddRepository:
         ICommandHandler<AddArtistCommand>,
         ICommandHandler<AddMasherCommand>,
-        ICommandHandler<AddTrackCommand>
+        ICommandHandler<AddTrackCommand>,
+        ICommandHandler<AddMashupCommand>
     {
     }
 }
