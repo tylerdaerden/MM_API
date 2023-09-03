@@ -55,5 +55,20 @@ namespace MM_API.Controllers
             return NoContent();
         }
 
+        [HttpPost("AddTrack")]
+        public IActionResult AddTrack([FromBody] AddTrackForm form)
+        {
+            _logger.LogInformation($"New Track Added : {form.Title} with a length of {form.Length} performed by {form.ArtistName} explicit lyrics = {form.Explicit}");
+            ICommandResult result = _addRepository.Execute(new AddTrackCommand(form.Title, form.Length, form.Explicit, form.ArtistName , form.ArtistId));
+
+            if (result.IsFailure)
+            {
+                _logger.LogError(result.Message);
+                return BadRequest();
+            }
+
+
+            return NoContent();
+        }
     }
 }

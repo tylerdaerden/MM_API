@@ -45,6 +45,18 @@ namespace MM_Models.Api.Mappers
                 (string)dataRecord["Weblink"]
                 );
         }
+
+        internal static Track ToTrack(this IDataRecord dataRecord)
+        {
+            return new Track(
+                (int)dataRecord["Id"],
+                (string)dataRecord["Title"],
+                (int)dataRecord["Length"],
+                (bool)dataRecord["Explicit"],
+                (string)dataRecord["ArtistName"],
+                (int)dataRecord["ArtistId"]
+                );
+        }
     }
 
 }

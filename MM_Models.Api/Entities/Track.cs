@@ -11,15 +11,19 @@ namespace MM_Models.Api.Entities
     {
         public int Id { get; init; }
         public string Title { get; init; }
+        public int Length { get; init; }
         public bool Explicit { get; init; }
         public string ArtistName { get; init; }
+        public int ArtistId { get;}
 
-        public Track (int id, string title, bool @explicit ,string artistname)
+        public Track (int id, string title, int length ,bool @explicit ,string artistname, int artistid)
         {
             Id = id;
             Title = title;
+            Length = length;
             Explicit = @explicit;
-            ArtistName = artistname;
+            ArtistName = artistname;   
+            ArtistId = artistid;
         }
 
 
