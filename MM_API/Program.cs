@@ -24,6 +24,7 @@ namespace MM_API
             builder.Services.AddSwaggerGen();
             builder.Services.AddScoped<IAuthRepository, AuthService>();
             builder.Services.AddScoped<IAddRepository, AddService>();
+            builder.Services.AddScoped<IGetRepository, GetService>();
             string databaseadress = Environment.GetEnvironmentVariable("MM_Database");
             builder.Services.AddTransient<DbConnection>(sp => new SqlConnection(configuration.GetConnectionString("MM_Database").Replace("DB_HOST", databaseadress ?? "TOURPCDANY\\DATAVIZ")));
             //pour la VDI
