@@ -75,9 +75,8 @@ namespace MM_Models.Api.Mappers
         internal static Mashup ToMashupByArtist(this IDataRecord dataRecord) 
         {
             return new Mashup(
-            (string)dataRecord["Mashups"],
-            (string)dataRecord["Artist"]
-
+            (string)dataRecord["Artist"],
+            (string)dataRecord["Mashups"]
                 );
         }
 
@@ -86,6 +85,13 @@ namespace MM_Models.Api.Mappers
             return new Mashup(
             (string)dataRecord["Masher"],
             (string)dataRecord["Mashup"]
+                );
+        }
+
+        internal static Mashup ToMashupbyId(this IDataRecord dataRecord)
+        {
+            return new Mashup(
+            (string)dataRecord["PathFile"]
                 );
         }
     }
