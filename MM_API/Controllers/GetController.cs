@@ -50,11 +50,26 @@ namespace MM_API.Controllers
             return Ok(mashup);
         }
 
-        [HttpGet("GetMashupbyId")]
+        [HttpGet("GetMashupById")]
         public IActionResult GetMashupById([FromQuery] GetMashupByIdForm form)
         {
             _logger.LogInformation($"Mashup Request by Id : {form.MashupId} ");
             Mashup? mashup = _getRepository.Execute(new GetMashupByIdQuery(form.MashupId));
+
+            if (mashup is null)
+            {
+                _logger.LogWarning("No Mashup Found");
+                return NotFound();
+            }
+
+            return Ok(mashup);
+        }
+
+        [HttpGet("GetMashupByTitle")]
+        public IActionResult GetMashupByTitle([FromQuery] GetMashupByTitleForm form)
+        {
+            _logger.LogInformation($"Mashup Request by Title : {form.Title} ");
+            Mashup? mashup = _getRepository.Execute(new GetMashupByTitleQuery(form.Title));
 
             if (mashup is null)
             {

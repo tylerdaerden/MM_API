@@ -13,7 +13,8 @@ namespace MM_Models.Api.Repositories
 {
     public interface IGetRepository : IQueryHandler<GetMashupByArtistQuery,Mashup>,
         IQueryHandler<GetMashupByMasherQuery,Mashup>,
-        IQueryHandler<GetMashupByIdQuery,Mashup>
+        IQueryHandler<GetMashupByIdQuery,Mashup>,
+        IQueryHandler<GetMashupByTitleQuery,Mashup>
 
     {
     }

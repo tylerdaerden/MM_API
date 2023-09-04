@@ -94,6 +94,14 @@ namespace MM_Models.Api.Mappers
             (string)dataRecord["PathFile"]
                 );
         }
+
+        internal static Mashup ToMashupbyTitle(this IDataRecord dataRecord) 
+        {
+            return new Mashup(
+            (string)dataRecord["PathFile"]
+                );
+        }
+
     }
 
 }
