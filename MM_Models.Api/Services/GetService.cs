@@ -37,5 +37,22 @@ namespace MM_Models.Api.Services
             _dbConnection.Close();
             return mashup;
         }
+
+        public Mashup Execute(GetMashupByIdQuery query)
+        {
+            _dbConnection.Open();
+            Mashup mashup = _dbConnection.ExecuteReader("MMSP_GetMashupbyId", dr => dr.ToMashupbyId(),true,query).SingleOrDefault();
+            _dbConnection.Close();
+            return mashup;
+        }
+
+        public Mashup Execute(GetMashupByTitleQuery query)
+        { 
+            _dbConnection.Open();
+            Mashup mashup = _dbConnection.ExecuteReader ("MMSP_GetMashupbyTitle" , dr => dr.ToMashupbyTitle(),true,query).SingleOrDefault ();
+            _dbConnection.Close();
+            return mashup;
+        
+        }
     }
 }
