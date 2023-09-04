@@ -66,7 +66,7 @@ namespace MM_Models.Api.Mappers
                 (string)dataRecord["Title"],
                 (string)dataRecord["PathFile"],
                 (int)dataRecord["Length"],
-                (TrackId)dataRecord["TrackIds"],
+                (int[])dataRecord["TrackIds"],
                 (int)dataRecord["Masherid"]
                 );
             ;

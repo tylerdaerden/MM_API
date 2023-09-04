@@ -4,19 +4,19 @@ using System.ComponentModel.DataAnnotations;
 namespace MM_API.Forms
 {
 #nullable disable
-    public class AddMashupForm
+    public class UpdateMashupForm
     {
         [Required]
-        [StringLength(80,MinimumLength =1)]
+        [StringLength(80, MinimumLength = 1)]
         public string Title { get; set; }
         [Required]
-        [StringLength(384,MinimumLength =1)]
+        [StringLength(384, MinimumLength = 1)]
         public string PathFile { get; set; }
         [Required]
         public int Length { get; set; }
         [Required]
-        public int[] TrackIds { get; set; }
+        public int[] TrackIds { get; }
         [Required]
-        public int MasherId { get; set; }
+        public int MasherId { get; }
     }
 }

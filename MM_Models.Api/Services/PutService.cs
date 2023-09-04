@@ -1,6 +1,4 @@
 ﻿using MM_Models.Api.Command;
-using MM_Models.Api.Entities;
-using MM_Models.Api.Queries;
 using MM_Models.Api.Repositories;
 using System;
 using System.Collections.Generic;
@@ -8,22 +6,21 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Tools.CQS.Command;
 using Tools.Ado;
-using MM_Models.Api.Mappers;
+using Tools.CQS.Command;
 
 namespace MM_Models.Api.Services
 {
-#nullable disable
-    public class AuthService : IAuthRepository
+    public class PutService : IUpdateRepository
     {
         private readonly DbConnection _dbConnection;
-        public AuthService(DbConnection dbConnection)
+
+        public PutService(DbConnection dbconnection)
         {
-            _dbConnection = dbConnection;
+            _dbConnection = dbconnection;
         }
 
-        public ICommandResult Execute(RegisterCommand command)
+        public ICommandResult Execute(UpdateMashupCommand command)
         {
             try
             {
@@ -31,7 +28,7 @@ namespace MM_Models.Api.Services
                 {
                     _dbConnection.Open();
 
-                    _dbConnection.ExecuteNonQuery("MMSP_Register", true, command);
+                    _dbConnection.ExecuteNonQuery("MMSP_UpdateMashup", true, command);
                     return
                         ICommandResult.Success();
                 }
@@ -41,17 +38,5 @@ namespace MM_Models.Api.Services
                 return ICommandResult.Failure(ex.Message);
             }
         }
-
-        public User Execute(LoginQuery query)
-        {
-            _dbConnection.Open();
-            User user = _dbConnection.ExecuteReader("MMSP_Login", dr => dr.ToUser(), true, query).SingleOrDefault();
-            _dbConnection.Close();
-            return user;
-        }
-
-
     }
-
 }
-

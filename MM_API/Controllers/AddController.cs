@@ -74,7 +74,7 @@ namespace MM_API.Controllers
         [HttpPost("AddMashup")]
         public IActionResult AddMashup([FromBody] AddMashupForm form)
         {
-            _logger.LogInformation($" New Mashup Added : {form.Title} with a length of {form.Length} at path {form.PathFile} mashed by Masher with id({form.MasherId}) in MasherTable , including the following TracksId {form.TrackIds} ");
+            _logger.LogInformation($" New Mashup Added : {form.Title} with a length of {form.Length} at path {form.PathFile} mashed by Masher with id({form.MasherId}) in MasherTable ");
             ICommandResult result = _addRepository.Execute(new AddMashupCommand(form.Title, form.PathFile, form.Length, form.TrackIds, form.MasherId));
             if (result.IsFailure) 
             {

@@ -67,10 +67,10 @@ namespace MM_Models.Api.Entities
         public string ArtistName { get; init; }
         public string MasherName { get; init; }
         public int Length { get; init; }
-        public TrackId TracksId { get; }
+        public int[] TracksId { get; }
         public int MasherId { get; }
 
-        public Mashup(int id, string title, string pathfile, int length, TrackId tracksid, int masherid)
+        public Mashup(int id, string title, string pathfile, int length, int[] tracksid, int masherid)
         {
             Id = id;
             Title = title;
